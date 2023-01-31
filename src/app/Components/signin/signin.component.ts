@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../Services/UserService/user.service';
+import { UserService } from '../../Services/UserService/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,12 +21,13 @@ constructor(private formBuilder:FormBuilder,private user:UserService){}
   onSubmit(){
     this.submitted=true;
     if(this.loginForm.valid){
-      let data={
+      let payload={
         email:this.loginForm.value.email,
         password:this.loginForm.value.password
       }
-      this.user.login(data).subscribe((response)=>{
+      this.user.login(payload).subscribe((response:any)=>{
         console.log(response);
+        localStorage.setItem('Token',response.data)
       })
     }
   }

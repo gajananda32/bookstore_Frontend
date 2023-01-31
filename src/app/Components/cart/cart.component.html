@@ -1,0 +1,131 @@
+<div class="main-div">
+    <div class="bookHead">
+        <p class="home" routerLink="/dashboard/display">Home / </p>
+        <p style="color: black; font-weight: 500;">My cart</p>
+    </div>
+    <div class="booksOuterDiv">
+        <div class="cart-detail">
+            <span style="color: black; font-weight: 500;">My Cart()</span>
+            <select class="dropdown-select">
+                <option value="">Use current location</option>
+                <option value="location-1">Location</option>
+            </select>
+        </div>
+        <div class="bookDetail">
+            <div class="bookInfo" *ngFor="let book of bookDetail">
+                <div class="image">
+                    <img style="width: 44px;  height: 54px;" src="../../../assets/Image 12.png">
+                </div>
+                <div class="bookData">
+                    <span class="bookName">{{book.bookName}}</span>
+                    <span class="authorName"> {{book.author}}</span>
+                    <div>
+                        <span class="discountPrice">Rs.{{book.discountPrice}}</span>
+                        <span class="originalPrice">Rs.{{book.price}}</span>
+                    </div>
+                    <div class="buttons">
+                        <div class="plus-minus">
+                            <button (click)="removeBook(book._id)">-</button>
+                            <span class="cartQty">{{book.quantity}}</span>
+                            <button  (click)="addBook(book._id)">+</button>
+                        </div>
+                        <button mat-stroked-button class="remove"> Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="blueButton">
+                  <button id ="btn" mat-flat-button>Place Order</button>
+             </div>
+        </div>
+    </div>
+
+
+    <!-- Address details -->
+    <div class="address">
+        <div>
+            <div class="editAddress">
+                <span style="margin-top: 10px;">Address Details</span>
+                <button mat-flat-button class="addressButton">Add New Address</button>
+            </div>
+            <div class="userDetails">
+                <div class="textFieldsDiv">
+                    <div class="textField">
+                        <span>Full name</span>
+                        <mat-form-field appearance="outline" class="">
+                            <input matInput >
+                            <mat-error>Full name is required</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="textField">
+                        <span>Mobile number</span>
+                        <mat-form-field appearance="outline" style="margin-left: 10px;">
+                            <input matInput placeholder="">
+                            <mat-error>Mobile number is required</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="addressInput">
+                    <span>Address</span>
+                    <mat-form-field appearance="outline">
+                        <input matInput placeholder="">
+                        <mat-error>Address is required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="textFieldsDiv">
+                    <div class="textField">
+                        <span>city/town</span>
+                        <mat-form-field appearance="outline" class="">
+                            <input matInput placeholder="">
+                            <mat-error>city/town is required</mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="textField">
+                        <span>State</span>
+                        <mat-form-field appearance="outline" style="margin-left: 10px;">
+                            <input matInput>
+                            <mat-error>State is required</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="radioButton">
+                    <span>Type</span>
+                    <mat-radio-group aria-label="Select an option" style="margin-left: -10px;">
+                        <mat-radio-button value="1">Home</mat-radio-button>
+                        <mat-radio-button value="2">Work</mat-radio-button>
+                        <mat-radio-button value="2">Other</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="blueButton">
+            <button id ="btn" mat-flat-button>Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order summary -->
+    <div class="order-summary">
+        <div>
+            <span>OrderSummary</span>
+                <div class="bookDetail">
+                    <div class="bookInfo" *ngFor="let book of bookDetail">
+                        <div class="image">
+                            <img style="width: 44px;  height: 54px;" src="../../../assets/Image 12.png">
+                        </div>
+                        <div class="bookData">
+                            <span class="bookName">{{book.bookName}}</span>
+                            <span class="authorName"> {{book.author}}</span>
+                            <div>
+                                <span class="discountPrice">Rs.{{book.discountPrice}}</span>
+                                <span class="originalPrice">Rs.{{book.price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blueButton">
+                          <button id ="btn" mat-flat-button>Place Order</button>
+                     </div>
+                </div>
+           
+        </div>
+    </div>
+
+</div>

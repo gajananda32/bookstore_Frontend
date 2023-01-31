@@ -1,0 +1,35 @@
+<div>
+    <div class="bookHead">
+        <div class="booktitle" >
+            <span style="font-size: 22px; font-weight: 500;">Books</span>
+            <span class="countbook">({{noOfBooks}} Items)</span>
+        </div>
+        <mat-select class="dropdown-select">
+            <mat-option value="">Sort by relevence</mat-option>
+            <mat-option value="location-1">Price:Low to High</mat-option>
+            <mat-option value="location-2">Price:High to Low</mat-option>
+         </mat-select>
+    </div>
+
+    <div class="display-books">
+        <mat-card class="book" *ngFor="let book of bookList">
+            <div class="book-image">
+                <img src="../../../assets/Image 12.png" (click)="openBookDetails(book)" >
+            </div>
+            <div class="book-details">
+                <span class="bookName">{{book.bookName}}</span>
+                <span class="authorName"> by {{book.author}}</span>
+                <div class="rating">
+                    <div class="rating-num">
+                        <span>4.3</span>
+                    </div>
+                    <span class="bookQuantity">({{book.quantity}})</span>
+                </div>
+                <div>
+                    <span class="discountPrice">Rs. {{book.discountPrice}}</span>
+                    <span class="originalPrice">Rs. {{book.price}}</span>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+</div>

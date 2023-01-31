@@ -33,8 +33,9 @@ export class SignupComponent implements OnInit {
         password: this.signupForm.value.password,
         mobileNumber: this.signupForm.value.phone,
       }
-      this.user.signup(data).subscribe((responce) =>{
+      this.user.signup(data).subscribe((responce:any) =>{
          console.log(responce)
+        
       })
     }
   }
